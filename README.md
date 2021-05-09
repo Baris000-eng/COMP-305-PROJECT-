@@ -3,7 +3,9 @@ Emre Düzakın, Barış Kaplan, Berke Can Rızai, Eren Barış Bostancı
 
 
 Completed steps: 
-
+1-) Meeting
+2-) Discussing the problem
+3-) Coming up with some brief ideas
 
 
 
