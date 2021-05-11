@@ -42,12 +42,8 @@ public class Main {
         System.out.println("Total delegates: " + delegateCount);
         System.out.println("Delegates to win: "+delegatesToWin);
         System.out.println("Min population votes needed: "+populationVotesNeeded);
-        
     }
     
-   
-
-
     public static int minToWin(int voters) {
         if (voters % 2 == 0) {
             return (voters / 2) + 1;
@@ -55,8 +51,6 @@ public class Main {
             return (voters + 1) / 2;
         }
     }
-
-
 
     public static ArrayList <Tribe> getTribes() {
         ArrayList <Tribe> tribes = new ArrayList <Tribe>();
@@ -73,8 +67,5 @@ public class Main {
             e.printStackTrace();
         }
         return tribes;
-    }
-
-    
-   
+    }  
 }
