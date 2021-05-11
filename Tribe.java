@@ -16,7 +16,7 @@ public class Tribe{
 
 
 
-  public String getName(String name){
+  public String getName(){
     return name;
   }
 
@@ -24,7 +24,7 @@ public class Tribe{
     this.name=name;
   }
 
-  public void getElectoralVotes(int electoralVotes){
+  public int getElectoralVotes(){
     return electoralVotes;
   }
 
@@ -32,7 +32,7 @@ public class Tribe{
     this.electoralVotes=electoralVotes;
   }
 
-  public void getPopulationVotes(int populationVotes){
+  public int getPopulationVotes(){
     return populationVotes;
   }
 

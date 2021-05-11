@@ -1,2 +1,3 @@
-language = "bash"
-run = ""
+language= "java"
+run= "bash averageRunButtonEnjoyer.sh"
+onBoot="echo Booting..."
