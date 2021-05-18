@@ -1,4 +1,6 @@
-public class Tribe implements Comparable<Tribe>{
+import java.util.Comparator;
+
+public class Tribe {
 
 
 
@@ -17,16 +19,6 @@ public class Tribe implements Comparable<Tribe>{
     this.electorValue=((double)populationVotes/(double)electoralVotes);
 
   }
-
-
-  public int compareTo(Tribe t){  
-    if(electorValue==t.electorValue){  
-      return 0;  
-    }else if(electorValue>t.electorValue){
-      return 1;  
-    }  
-    return -1;  
-  }  
 
   public String getName(){
     return name;
@@ -73,5 +65,33 @@ public class Tribe implements Comparable<Tribe>{
   public String toString(){
     return "Name: "+getName()+" Electoral Votes: "+getElectoralVotes()+" PopulationVotes: "+getPopulationVotes+" Priority "+this.electorValue;
   }*/
+
+}
+
+class ElectorComparator implements Comparator<Tribe> {
+
+	@Override
+	public int compare(Tribe o1, Tribe o2) {
+		if(o1.electorValue == o2.electorValue){  
+			return 0;  
+		}else if(o1.electorValue > o2.electorValue){
+			return 1;  
+		}  
+		return -1;
+	}
+
+}
+
+class PopulationComparator implements Comparator<Tribe> {
+
+	@Override
+	public int compare(Tribe o1, Tribe o2) {
+		if(o1.populationVotes == o2.populationVotes){  
+			return 0;  
+		}else if(o1.populationVotes > o2.populationVotes){
+			return 1;  
+		}  
+		return -1;
+	}
 
 }
