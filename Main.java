@@ -30,7 +30,6 @@ public class Main {
 		createLists();
 		System.out.println("Total: " + total);
 		delegatesToWin = minToWin(delegateCount);
-		
 		tribes = new ArrayList<Tribe>();
 
 		while (delegatesToWin > currentDelegates) {
@@ -40,18 +39,22 @@ public class Main {
 
 			if( delegatesRemaining < currentPrioTribe.getElectoralVotes()){
 				Tribe currentPopuloTribe = currentPrioTribe;
+        ArrayList<Tribe> tmp = new ArrayList<Tribe>();
 				while (delegatesRemaining > populoDelegateCount){
 					currentPopuloTribe = populoTribes.poll();
 					populoDelegateCount += currentPopuloTribe.getElectoralVotes();
 					populoPopuloCount += currentPopuloTribe.getPopVotesNeeded();
+          tmp.add(currentPopuloTribe);
 				}
 
 				if (populoPopuloCount < currentPrioTribe.getPopVotesNeeded()){
-					currentDelegates += currentPopuloTribe.getElectoralVotes();
-					tribes.add(currentPopuloTribe);
-					populationVotesNeeded += currentPopuloTribe.getPopVotesNeeded();
-					prioTribes.remove(currentPopuloTribe);
-					//System.out.println("*From Population List* " + currentPopuloTribe.getName() +" " + currentPopuloTribe.getElectoralVotes() + " " + currentPopuloTribe.getPopulationVotes() + " " + currentPopuloTribe.getElectorValue());
+					for(int i = 0; i < tmp.size(); i++){
+					  currentDelegates += tmp.get(i).getElectoralVotes();
+            populationVotesNeeded += tmp.get(i).getPopVotesNeeded();
+					  prioTribes.remove(tmp.get(i));
+            tribes.add(tmp.get(i));
+            //System.out.println("*From Population List* \n" + tmp.get(i).getName() +" " + tmp.get(i).getElectoralVotes() + " " + tmp.get(i).getPopulationVotes() + " " + tmp.get(i).getElectorValue());
+          }
 				} else {
 					currentDelegates += currentPrioTribe.getElectoralVotes();
 					tribes.add(currentPrioTribe);
@@ -65,13 +68,13 @@ public class Main {
 				populoTribes.remove(currentPrioTribe);
 			}
 		}
-
 		printStats();
 		double end = System.nanoTime();
 		double execution = end - start;
 		double power= Math.pow(10.0,9);
 		execution=execution/power;
 		System.out.println("The Execution Time: " + execution + " seconds");
+    System.out.println("-----------------------------------------------------------------");
 		printSelected();
 	}
 
@@ -82,6 +85,7 @@ public class Main {
 			return (voters + 1) / 2;
 		}
 	}
+  
 	public static ArrayList <Tribe> getTribes() {
 		ArrayList <Tribe> tribes = new ArrayList <Tribe> ();
 		try (BufferedReader br = new BufferedReader(new FileReader(test))) {
@@ -101,17 +105,17 @@ public class Main {
 
 	public static void createLists() {
 		tribes = getTribes();
+    
 		prioTribes = new PriorityQueue<Tribe> (tribes.size(), new ElectorComparator());
 		populoTribes = new PriorityQueue<Tribe> (tribes.size(), new PopulationComparator());
 
 		for(int i = 0; i < tribes.size(); i++){
 			prioTribes.add(tribes.get(i));
 			populoTribes.add(tribes.get(i));
-
 			delegateCount += tribes.get(i).getElectoralVotes();
 			total += tribes.get(i).getPopulationVotes();
 		}
-		System.out.println(tribes.size() + " " + prioTribes.size());
+		System.out.println("Tribe count:" + tribes.size());
 	}
 
 	public static void printStats(){
