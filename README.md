@@ -34,6 +34,17 @@ How to run our program:
 To run our program, we need to type java Main to the terminal.
 
 
+Approaches that we try: 
+
+
+
+
+Our final algorithm: 
+
+
+
+
+
 
 
 
