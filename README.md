@@ -19,3 +19,22 @@ To Do List:
 3-) Come up with some ideas
 4-) Try to find best idea to solve the problem.
 5-) Prepare a presentation about the time&space complexity of the algorithm, about the ideas that we proposed, and also about our final idea to solve the tribal shaman king selection problem.
+
+
+
+
+How to compile our program: 
+
+
+To compile our program, we need to write javac *.java to the terminal.
+
+
+How to run our program: 
+
+To run our program, we need to type java Main to the terminal.
+
+
+
+
+
+
