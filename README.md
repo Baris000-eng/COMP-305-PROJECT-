@@ -43,6 +43,12 @@ Our final algorithm:
 
 
 
+Run times of the test cases:
+
+For the test case-1: 0.0032966 seconds
+
+For the test case-2: 0.0040365 seconds
+
 
 
 
