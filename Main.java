@@ -18,8 +18,6 @@ public class Main {
 	public static int populoPopuloCount=0;
 	public static int delegatesRemaining=0;
   public static int currentDelegates = 0;
-  public static int a=0;
-  public static int b=0;
  
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
@@ -128,11 +126,7 @@ public class Main {
 	public static void printSelected() {
 		System.out.println("Selected Tribes:");
 		tribes.forEach(t -> {
-			a += t.getElectoralVotes();
-			b += t.popVotesNeeded;
 			System.out.println(t.getName() + " " + t.getElectoralVotes() + " " + t.getPopulationVotes() + " " + t.getElectorValue());			
 		});
-		System.out.println(a + " " + b + " ");
 	}
-
 }
