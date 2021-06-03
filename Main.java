@@ -17,6 +17,7 @@ public class Main {
 	public static int populoDelegateCount=0;
 	public static int populoPopuloCount=0;
 	public static int delegatesRemaining=0;
+  public static int currentDelegates = 0;
   public static int a=0;
   public static int b=0;
  
@@ -33,7 +34,6 @@ public class Main {
 		
 		tribes = new ArrayList<Tribe>();
 
-    int currentDelegates=0;
 		while (delegatesToWin > currentDelegates) {
 			Tribe currentPrioTribe = prioTribes.poll();
 			//System.out.println(currentPrioTribe.getName() + " " + currentPrioTribe.getElectoralVotes() + " " + currentPrioTribe.getPopulationVotes() + " " + currentPrioTribe.getElectorValue());
