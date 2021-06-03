@@ -75,7 +75,6 @@ public class Main {
 		printSelected();
 	}
 
-
 	public static int minToWin(int voters) {
 		if (voters % 2 == 0) {
 			return (voters / 2) + 1;
