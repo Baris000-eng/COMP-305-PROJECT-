@@ -5,13 +5,10 @@ import java.util.ArrayList;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
-
-
-
 public class Main {
-	static ArrayList<Tribe> tribes;
-	static PriorityQueue<Tribe> prioTribes;
-	static PriorityQueue<Tribe> populoTribes;
+	public static ArrayList<Tribe> tribes;
+	public static PriorityQueue<Tribe> prioTribes;
+	public static PriorityQueue<Tribe> populoTribes;
 	public static int delegatesToWin = 0;
 	public static int populationVotesNeeded = 0;
 	public static int total = 0;
@@ -21,8 +18,10 @@ public class Main {
 	public static int populoDelegateCount=0;
 	public static int populoPopuloCount=0;
 	public static int delegatesRemaining=0;
-
-
+  public static int a=0;
+  public static int b=0;
+ 
+   
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter test name: ");
@@ -32,10 +31,12 @@ public class Main {
 		createLists();
 		System.out.println("Total: " + total);
 		delegatesToWin = minToWin(delegateCount);
+		
+		tribes = new ArrayList<Tribe>();
 
 		while (delegatesToWin > currentDelegates) {
 			Tribe currentPrioTribe = prioTribes.poll();
-			System.out.println(currentPrioTribe.getName() + " " + currentPrioTribe.getElectoralVotes() + " " + currentPrioTribe.getPopulationVotes() + " " + currentPrioTribe.getElectorValue());
+			//System.out.println(currentPrioTribe.getName() + " " + currentPrioTribe.getElectoralVotes() + " " + currentPrioTribe.getPopulationVotes() + " " + currentPrioTribe.getElectorValue());
 			delegatesRemaining= delegatesToWin - currentDelegates;
 
 			if( delegatesRemaining < currentPrioTribe.getElectoralVotes()){
@@ -48,16 +49,19 @@ public class Main {
 
 				if (populoPopuloCount < currentPrioTribe.getPopVotesNeeded()){
 					currentDelegates += currentPopuloTribe.getElectoralVotes();
+					tribes.add(currentPopuloTribe);
 					populationVotesNeeded += currentPopuloTribe.getPopVotesNeeded();
 					prioTribes.remove(currentPopuloTribe);
-					System.out.println("*From Population List* " + currentPopuloTribe.getName() +" " + currentPopuloTribe.getElectoralVotes() + " " + currentPopuloTribe.getPopulationVotes() + " " + currentPopuloTribe.getElectorValue());
+					//System.out.println("*From Population List* " + currentPopuloTribe.getName() +" " + currentPopuloTribe.getElectoralVotes() + " " + currentPopuloTribe.getPopulationVotes() + " " + currentPopuloTribe.getElectorValue());
 				} else {
 					currentDelegates += currentPrioTribe.getElectoralVotes();
+					tribes.add(currentPrioTribe);
 					populationVotesNeeded += currentPrioTribe.getPopVotesNeeded();
 					populoTribes.remove(currentPrioTribe);
 				}
 			} else {
 				currentDelegates += currentPrioTribe.getElectoralVotes();
+				tribes.add(currentPrioTribe);
 				populationVotesNeeded += currentPrioTribe.getPopVotesNeeded();
 				populoTribes.remove(currentPrioTribe);
 			}
@@ -69,6 +73,7 @@ public class Main {
 		double power= Math.pow(10.0,9);
 		execution=execution/power;
 		System.out.println("The Execution Time: " + execution + " seconds");
+		printSelected();
 	}
 
 
@@ -116,6 +121,16 @@ public class Main {
 		System.out.println("Total delegates: " + delegateCount);
 		System.out.println("Delegates to win: " + delegatesToWin);
 		System.out.println("Min population votes needed: " + populationVotesNeeded);
+	}
+
+	public static void printSelected() {
+		System.out.println("Selected Tribes:");
+		tribes.forEach(t -> {
+			a += t.getElectoralVotes();
+			b += t.popVotesNeeded;
+			System.out.println(t.getName() + " " + t.getElectoralVotes() + " " + t.getPopulationVotes() + " " + t.getElectorValue());			
+		});
+		System.out.println(a + " " + b + " ");
 	}
 
 }
