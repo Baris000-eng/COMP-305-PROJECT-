@@ -26,12 +26,12 @@ To Do List:
 How to compile our program: 
 
 
-To make our program compile, we need to create a .sh file in replit and write javac *.java to this file.
+To compile our program, we need to write javac *.java to the terminal.
 
 
 How to run our program: 
 
-To make our program run, we need to write java Main to the .sh file after we write javac *.java to this file.
+To run our program, we need to type java Main to the terminal.
 
 
 
