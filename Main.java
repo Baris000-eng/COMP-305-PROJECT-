@@ -21,7 +21,6 @@ public class Main {
   public static int a=0;
   public static int b=0;
  
-   
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter test name: ");
