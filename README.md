@@ -114,6 +114,11 @@ How to run our program:
 To run our program, we need to type java Main to the terminal.
 
 
+*Further Improvements
+
+It is still possible that there are cases where our algorithm does not yield the correct result. Even though it is very efficient compared to the alternatives such as subset-sum, we haven't formally proven its correctness. Further analysis on its correctness and handling of the edge cases can be done to further improve the algortihm.
+
+
 
 
 
