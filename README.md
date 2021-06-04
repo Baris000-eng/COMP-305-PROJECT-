@@ -86,6 +86,23 @@ For the test case-2: 0.0040365 seconds
 
 *Extreme Cases That are not Handled 
 
+If a single tribe is sufficient and necessary to win the election (holds more than half the available electors), this approach cannot detect that. 
+Example:
+
+Tribe 1: 
+Electors = 1
+Population = 2
+
+Tribe 2:
+Electors = 1
+Population = 3
+
+Tribe 3:
+Electors = 150
+Population = 9000
+
+We decided not to handle this case because this edge case occurring is close to impossible when the sample size is large enough and such distribution will likely never occur in real-life scenarios. Although it is trivial to check this edge case, and it will not increase the complexity of the algorithm, we didn't want to increase the run time and left it as is.
+
 
 
 
@@ -117,6 +134,8 @@ To run our program, we need to type java Main to the terminal.
 *Further Improvements
 
 It is still possible that there are cases where our algorithm does not yield the correct result. Even though it is very efficient compared to the alternatives such as subset-sum, we haven't formally proven its correctness. Further analysis on its correctness and handling of the edge cases can be done to further improve the algortihm.
+
+
 
 
 
