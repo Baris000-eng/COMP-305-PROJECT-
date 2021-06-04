@@ -73,7 +73,7 @@ also sufficient to win the election.
 
 *Time and Space Complexity
 
-The time complexity of our algorithm: O(N^2)
+The time complexity of our algorithm: O(N)
 The space complexity of our algorithm: O(N)
 
 *Run Times and Test Results
