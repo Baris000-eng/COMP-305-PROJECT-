@@ -1,5 +1,5 @@
-# COMP-305 (ALGORITHMS&COMPLEXITY) PROJECT (Tribal Shaman King Selection)
-Emre Düzakın, Barış Kaplan, Berke Can Rızai, Eren Barış Bostancı 
+# COMP-305 PROJECT (Tribal Shaman King Selection)
+Emre , Barış , Berke , Eren  
 
 Table of Contents
 1-Development Logs
